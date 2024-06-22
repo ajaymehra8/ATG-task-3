@@ -1,14 +1,17 @@
 import { Avatar, Box, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
-import { getAllUser } from "../../Api/Users";
+import React from "react";
+import { UseChange } from "../../context/StateProvider";
 const SingleUser = ({ user,handleFunction }) => {
- 
+ const {selectedUser}=UseChange();
   return (
     <Box
       display={"flex"}
       gap={2}
+pl={2}
       alignItems={"center"}
       justifyContent={"flex-start"}
+      bgcolor={selectedUser?.id===user?.id?"black":""}
+      borderRadius={"100px"}
       m={1}
       sx={{ cursor: "pointer" }}
       width={"100%"}

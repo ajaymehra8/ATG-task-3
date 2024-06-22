@@ -1,6 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import { Spinner } from "@chakra-ui/react";
 import UserProfile from "./User/UserProfile";
 import { UseChange } from "../context/StateProvider";
 
@@ -37,7 +36,7 @@ const UserInfo = () => {
           No user selected
         </Typography>
       ) : (
-        <Box alignSelf={"center"}>
+        <Box alignSelf={"center"} width={"clamp(350px,50%,500px)"}>
           <UserProfile />
         </Box>
       )}

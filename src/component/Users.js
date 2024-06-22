@@ -9,7 +9,7 @@ import UserLoading from "./User/UserLoading";
 const Users = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
-  const {selectedUser,setSelectedUser}=UseChange();
+  const {setSelectedUser}=UseChange();
 const selectUser=(u)=>{
 setSelectedUser(u);
 }

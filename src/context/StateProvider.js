@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useContext, useState } from "react";
 const StateContext = createContext();
 
 const StateProvider = ({ children }) => {
