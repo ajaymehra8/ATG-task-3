@@ -1,0 +1,83 @@
+import React from "react";
+import { Stack, Skeleton } from "@chakra-ui/react";
+
+const UserLoading = () => {
+  return (
+    <Stack>
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+      <Skeleton
+        height="45px"
+        startColor="gray"
+        endColor="black"
+        fadeDuration={.7}
+      />
+    </Stack>
+  );
+};
+
+export default UserLoading;
