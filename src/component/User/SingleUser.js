@@ -1,19 +1,31 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import React from "react";
 import { UseChange } from "../../context/StateProvider";
-const SingleUser = ({ user,handleFunction }) => {
- const {selectedUser}=UseChange();
+const SingleUser = ({ user, handleFunction }) => {
+  const { selectedUser } = UseChange();
   return (
     <Box
       display={"flex"}
       gap={2}
-pl={2}
+      pl={2}
       alignItems={"center"}
       justifyContent={"flex-start"}
-      bgcolor={selectedUser?.id===user?.id?"black":""}
+      bgcolor={
+        selectedUser?.id === user?.id &&
+        selectedUser?.profile?.username === user?.profile?.username
+          ? "black"
+          : ""
+      }
       borderRadius={"100px"}
       m={1}
-      sx={{ cursor: "pointer" }}
+      sx={{
+        cursor: "pointer",
+        transition:"all .7s",
+        "&:hover": {
+          bgcolor: "black",
+          boxShadow: 3,
+        },
+      }}
       width={"100%"}
       onClick={handleFunction}
     >
@@ -34,7 +46,7 @@ pl={2}
         pl={0}
       >
         <Typography variant="h6" color={"text.primary"}>
-        {user?.profile?.firstName + " " + user?.profile?.lastName}
+          {user?.profile?.firstName + " " + user?.profile?.lastName}
         </Typography>
         <Typography variant="p" color={"text.secondary"}>
           {user && user.jobTitle}
