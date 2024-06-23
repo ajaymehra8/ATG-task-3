@@ -5,21 +5,21 @@ import { getAllUser } from "../Api/Users";
 import { UseChange } from "../context/StateProvider";
 import UserLoading from "./User/UserLoading";
 
-
 const Users = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
-  const {setSelectedUser}=UseChange();
-const selectUser=(u)=>{
-setSelectedUser(u);
-}
+  const { setSelectedUser } = UseChange();
+  const selectUser = (u) => {
+    setSelectedUser(u);
+  };
   const fetchUsers = async () => {
     setLoading(true);
     try {
       const data = await getAllUser();
-      if (data) {
+      if (data?.length > 0) {
         setUsers(data);
-        console.log(typeof data, data);
+      } else {
+        setSelectedUser(null);
       }
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -56,20 +56,43 @@ setSelectedUser(u);
         },
       }}
     >
-      <Typography
-        variant="h3"
-        pt={3}
-        mb={"20px"}
-        sx={{ position: "sticky", top: 0, zIndex: 1, backgroundColor: "background.paper" }}
-      >
-        Users
-      </Typography>
+      {users?.length > 0 && (
+        <Typography
+          variant="h3"
+          pt={3}
+          mb={"20px"}
+          sx={{
+            position: "sticky",
+            top: 0,
+            zIndex: 1,
+            backgroundColor: "background.paper",
+          }}
+        >
+          Users
+        </Typography>
+      )}
       {loading ? (
-        <UserLoading/>
+        <UserLoading />
       ) : users.length > 0 ? (
-        users.map((u, index) => <SingleUser key={u.id || index} user={u} handleFunction={()=>{selectUser(u)}}/>)
+        users.map((u, index) => (
+          <SingleUser
+            key={u.id || index}
+            user={u}
+            handleFunction={() => {
+              selectUser(u);
+            }}
+          />
+        ))
       ) : (
-        <Typography>No users found</Typography>
+        <Box
+          width={"100%"}
+          height={'100%'}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Typography variant="h4" alignSelf={"center"}>No users found</Typography>
+        </Box>
       )}
     </Box>
   );
